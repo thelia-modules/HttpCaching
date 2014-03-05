@@ -21,7 +21,7 @@
 /*                                                                                   */
 /*************************************************************************************/
 
-namespace FrontEsi;
+namespace HttpCaching;
 
 use Thelia\Module\BaseModule;
 

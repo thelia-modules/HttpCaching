@@ -2,15 +2,15 @@
 <module>
     <fullnamespace>HttpCaching\HttpCaching</fullnamespace>
     <descriptive locale="en_US">
-        <title>Automatically generated module - please update module.xml file</title>
+        <title>Module managing Http caching</title>
     </descriptive>
     <descriptive locale="fr_FR">
-        <title>Module généré autromatiquement - editez le fichier module.xml</title>
+        <title>Module permettant d'utiliser un cache http rapidement</title>
     </descriptive>
-    <version></version>
+    <version>0.1</version>
     <author>
-        <name></name>
-        <email></email>
+        <name>Manuel Raynaud</name>
+        <email>manu@thelia.net</email>
     </author>
     <type>classic</type>
     <thelia>2.0.0</thelia>
