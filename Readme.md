@@ -1,10 +1,10 @@
-#FrontEsi
+#HttpCaching
 
 This module allow you to define which route can be cached and a specific expiration time.
 
 You can only use expiration cache. Validation cache must be set in each controller you want to use.
 
-Obviously this module must used in combination with esi tags, using the render_esi tag : {render_esi path="http://your-taget.tld/resource"}
+Obviously this module must used in combination with esi tags, using the render_esi tag : ```{render_esi path="http://your-taget.tld/resource"}```
 
 ##Installation
 
