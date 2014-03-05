@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <!-- Account -->
+    <route id="httpCaching.customer.update.view" path="/account/update" methods="get">
+        <default key="_controller">Front\Controller\CustomerController::viewAction</default>
+        <default key="_view">account-update</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.customer.update.process" path="/account/update" methods="post">
+        <default key="_controller">Front\Controller\CustomerController::updateAction</default>
+        <default key="_view">account-update</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.customer.account" path="/account">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">account</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.customer.password.change.process" path="/account/password" methods="post">
+        <default key="_controller">Front\Controller\CustomerController::updatePasswordAction</default>
+        <default key="_view">account-password</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.customer.password.change.view" path="/account/password" methods="get">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">account-password</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.customer.order.pdf.delivery" path="/account/order/pdf/delivery/{order_id}">
+        <default key="_controller">Front\Controller\OrderController::generateDeliveryPdf</default>
+        <requirement key="order_id">\d+</requirement>
+        <default key="no_cache">1</default>
+    </route>
+    <!-- end customer routes -->
+
+    <route id="httpCaching.customer.create.process" path="/register" methods="post">
+        <default key="_controller">Front\Controller\CustomerController::createAction</default>
+        <default key="_view">register</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <!-- Login -->
+    <route id="httpCaching.customer.login.process" path="/login" methods="post">
+        <default key="_controller">Front\Controller\CustomerController::loginAction</default>
+        <default key="_view">login</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <!-- Forgot Password -->
+    <route id="httpCaching.customer.password.retrieve.process" path="/password" methods="post">
+        <default key="_controller">Front\Controller\CustomerController::newPasswordAction</default>
+        <default key="_view">password</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <!-- Logout -->
+    <route id="httpCaching.customer.logout.process" path="/logout">
+        <default key="_controller">Front\Controller\CustomerController::logoutAction</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <!-- customer address routes -->
+    <route id="httpCaching.address.create.view" path="/address/create" methods="get">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">address</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.address.create" path="/address/create" methods="post" >
+        <default key="_controller">Front\Controller\AddressController::createAction</default>
+        <default key="_view">address</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.address.edit" path="/address/update/{address_id}" methods="get">
+        <default key="_controller">Front\Controller\AddressController::updateViewAction</default>
+        <default key="_view">address-update</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.address.update" path="/address/update/{address_id}" methods="post" >
+        <default key="_controller">Front\Controller\AddressController::processUpdateAction</default>
+        <default key="_view">address-update</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.address.delete" path="/address/delete/{address_id}">
+        <default key="_controller">Front\Controller\AddressController::deleteAction</default>
+        <default key="_view">account</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.address.generateModal" path="/address/modal/{address_id}" methods="get">
+        <default key="_controller">Front\Controller\AddressController::generateModalAction</default>
+        <default key="_view">modal-address</default>
+        <default key="no_cache">1</default>
+        <requirement key="address_id">\d+</requirement>
+    </route>
+
+    <!-- end customer address routes -->
+
+    <route id="httpCaching.cart.add.process" path="/cart/add">
+        <default key="_controller">Front\Controller\CartController::addItem</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.cart.delete.process" path="/cart/delete/{cart_item}">
+        <default key="_controller">Front\Controller\CartController::deleteItem</default>
+        <default key="_view">cart</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.cart.update.quantity" path="/cart/update">
+        <default key="_controller">Front\Controller\CartController::changeItem</default>
+        <default key="_view">cart</default>
+        <default key="no_cache">1</default>
+    </route>
+    <!-- end cart routes -->
+
+    <!-- order management process -->
+    <route id="httpCaching.order.delivery.process" path="/order/delivery" methods="post">
+        <default key="_controller">Front\Controller\OrderController::deliver</default>
+        <default key="_view">order-delivery</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.delivery" path="/order/delivery">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">order-delivery</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.admin.delivery.ajax-module-list" path="/order/deliveryModuleList">
+        <default key="_controller">Front\Controller\OrderController::getDeliveryModuleListAjaxAction</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.invoice.process" path="/order/invoice" methods="post">
+        <default key="_controller">Front\Controller\OrderController::invoice</default>
+        <default key="_view">order-invoice</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.invoice" path="/order/invoice">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">order-invoice</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.coupon.process" path="/order/coupon" methods="post">
+        <default key="_controller">Front\Controller\CouponController::consumeAction</default>
+        <default key="_view">order-invoice</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.payment.process" path="/order/pay">
+        <default key="_controller">Front\Controller\OrderController::pay</default>
+        <default key="no_cache">1</default>
+    </route>
+
+    <route id="httpCaching.order.placed" path="/order/placed/{order_id}">
+        <default key="_controller">Front\Controller\OrderController::orderPlaced</default>
+        <default key="_view">order-placed</default>
+        <default key="no_cache">1</default>
+    </route>
+    <!-- end order management process -->
+
+    <!-- contact management -->
+    <route id="httpCaching.contact.send" path="/contact" methods="post">
+        <default key="_controller">Front\Controller\ContactController::sendAction</default>
+        <default key="_view">contact</default>
+        <default key="no_cache">1</default>
+    </route>
+
+
+
+</routes>
