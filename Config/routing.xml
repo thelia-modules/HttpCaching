@@ -4,6 +4,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
+    <route id="httpCaching.flush" path="/admin/HttpCaching/flush">
+        <default key="_controller">HttpCaching\Controller\HttpCaching::flush</default>
+    </route>
+
     <!-- Account -->
     <route id="httpCaching.customer.update.view" path="/account/update" methods="get">
         <default key="_controller">Front\Controller\CustomerController::viewAction</default>
