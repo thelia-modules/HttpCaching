@@ -111,7 +111,11 @@
     </route>
 
     <!-- end customer address routes -->
-
+    <route id="cart.view" path="/cart">
+        <default key="_controller">Thelia\Controller\Front\DefaultController::noAction</default>
+        <default key="_view">cart</default>
+        <default key="no_cache">1</default>
+    </route>
     <route id="httpCaching.cart.add.process" path="/cart/add">
         <default key="_controller">Front\Controller\CartController::addItem</default>
         <default key="no_cache">1</default>
