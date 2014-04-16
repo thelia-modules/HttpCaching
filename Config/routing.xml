@@ -44,6 +44,12 @@
         <requirement key="order_id">\d+</requirement>
         <default key="no_cache">1</default>
     </route>
+
+    <route id="httpCaching.customer.order.pdf.invoice" path="/account/order/pdf/invoice/{order_id}">
+        <default key="_controller">Front\Controller\OrderController::generateDeliveryPdf</default>
+        <requirement key="order_id">\d+</requirement>
+        <default key="no_cache">1</default>
+    </route>
     <!-- end customer routes -->
 
     <route id="httpCaching.customer.create.process" path="/register" methods="post">
